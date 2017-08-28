@@ -4,6 +4,7 @@
 # Configuration
 # Replace SSH_USERNAME, SSH_HOST, SSH_GIT_PATH with your details
 USER=chandramgc1991
+USEREMAIL=chandramgc@gmail.com
 HOST=github.com
 GIT_PATH=chandramgc1991
 
@@ -30,16 +31,17 @@ echo "-- Initializing local repo & pushing to remote"
 echo "--"
 
 touch .gitignore
-git config --global user.name "chandramgc1991"
-git config --global user.email "chandramgc@gmail.com"
+git config --global user.name $USER
+git config --global user.email $USEREMAIL
 git init
-git add .
+git add *
 git commit -m 'initial commit'
-git push --all $GIT_REMOTE_URL
+#git push --all $GIT_REMOTE_URL
 git remote add origin $GIT_REMOTE_URL
-git config branch.master.remote origin
-git config branch.master.merge refs/heads/master
+#git config branch.master.remote origin
+#git config branch.master.merge refs/heads/master
 #git fetch
+git remote set-url origin $GIT_REMOTE_URL
 git remote -v
 git push -u origin master
 git merge master

@@ -8,7 +8,7 @@ HOST=github.com
 GIT_PATH=chandramgc1991
 
 REPO=${PWD##*/}
-GIT_REMOTE_URL=ssh://$USER@$HOST:$GIT_PATH/$REPO
+GIT_REMOTE_URL=ssh://$USER@$HOST:$GIT_PATH/$REPO.git
 
 echo "-------------------------------------------"
 echo "------ Building New Git Repository --------"

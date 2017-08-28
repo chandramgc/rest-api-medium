@@ -3,12 +3,12 @@
 
 # Configuration
 # Replace SSH_USERNAME, SSH_HOST, SSH_GIT_PATH with your details
-USER=SSH_USERNAME
-HOST=SSH_HOST
-GIT_PATH=SSH_GIT_PATH
+USER=git
+HOST=github.com
+GIT_PATH=chandramgc1991
 
 REPO=${PWD##*/}
-GIT_REMOTE_URL=ssh://$USER@$HOST/$GIT_PATH/$REPO
+GIT_REMOTE_URL=ssh://$USER@$HOST:$GIT_PATH/$REPO
 
 echo "-------------------------------------------"
 echo "------ Building New Git Repository --------"

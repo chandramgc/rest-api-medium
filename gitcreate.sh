@@ -38,13 +38,15 @@ git add *
 git commit -m 'initial commit'
 #git push --all $GIT_REMOTE_URL
 git remote add origin $GIT_REMOTE_URL
+#git remote add origin https://github.com/chandramgc1991/rest-api-medium.git
 #git config branch.master.remote origin
 #git config branch.master.merge refs/heads/master
 #git fetch
-git remote set-url origin $GIT_REMOTE_URL
+#git branch --unset-upstream
+#git remote set-url origin $GIT_REMOTE_URL
 git remote -v
 git push -u origin master
-git merge master
+#git merge master
 #git branch -a
 
 echo "--"

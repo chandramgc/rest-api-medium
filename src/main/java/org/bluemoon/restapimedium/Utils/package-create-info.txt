@@ -1,0 +1,9 @@
+Flow of package creation:
+
+1.  Model
+2.  Data/Repository
+3.  Service
+4.  Implementation
+5.  Controller
+6.  Application
+6.  Utils

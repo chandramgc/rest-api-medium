@@ -3,12 +3,12 @@
 
 # Configuration
 # Replace SSH_USERNAME, SSH_HOST, SSH_GIT_PATH with your details
-USER=git
+USER=chandramgc1991
 HOST=github.com
 GIT_PATH=chandramgc1991
 
 REPO=${PWD##*/}
-GIT_REMOTE_URL=ssh://$USER@$HOST:$GIT_PATH/$REPO.git
+GIT_REMOTE_URL=https://$HOST/$USER/$REPO.git
 
 echo "-------------------------------------------"
 echo "------ Building New Git Repository --------"
@@ -18,10 +18,10 @@ echo "-------------------------------------------"
 
 echo "--"
 echo "-- Creating bare remote repo at:"
-echo "-- $USER@$HOST/$GIT_PATH/$REPO"
+echo "-- https://$HOST/$USER/$REPO.git"
 echo "--"
 
-ssh $USER@$HOST 'mkdir '$GIT_PATH'/'$REPO' && cd '$GIT_PATH'/'$REPO' && git --bare init && git --bare update-server-info && cp hooks/post-update.sample hooks/post-update && chmod a+x hooks/post-update && touch git-daemon-export-ok'
+#ssh $USER@$HOST 'mkdir '$GIT_PATH'/'$REPO' && cd '$GIT_PATH'/'$REPO' && git --bare init && git --bare update-server-info && cp hooks/post-update.sample hooks/post-update && chmod a+x hooks/post-update && touch git-daemon-export-ok'
 
 # Configure local repo
 
@@ -30,6 +30,8 @@ echo "-- Initializing local repo & pushing to remote"
 echo "--"
 
 touch .gitignore
+git config --global user.name "chandramgc1991"
+git config --global user.email "chandramgc@gmail.com"
 git init
 git add .
 git commit -m 'initial commit'
@@ -37,11 +39,13 @@ git push --all $GIT_REMOTE_URL
 git remote add origin $GIT_REMOTE_URL
 git config branch.master.remote origin
 git config branch.master.merge refs/heads/master
-git fetch
+#git fetch
+git remote -v
+git push -u origin master
 git merge master
-git branch -a
+#git branch -a
 
 echo "--"
 echo "-- Your new git repo '$REPO' is ready and initialized at:"
-echo "-- $USER@$HOST/$GIT_PATH/$REPO"
+echo "-- https://$HOST/$USER/$REPO.git"
 echo "--"
